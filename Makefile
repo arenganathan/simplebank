@@ -19,8 +19,8 @@ migratedown:
 migratedown1:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" down 1
 
-dockerclean:
-	docker rm -f $(docker ps -a)
+clean:
+	docker rm -f $(docker ps -a); docker rmi 874552273171.dkr.ecr.us-east-1.amazonaws.com/simplebank
 
 sqlc:
 	sqlc generate
